@@ -1,0 +1,266 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, sans-serif;
+}
+
+/* =====================
+   THEME VARIABLES
+===================== */
+:root {
+  --bg-main: linear-gradient(135deg, #120018, #1a0026, #240033);
+  --text-main: #f0e9ff;
+  --card-bg: rgba(255,255,255,0.06);
+  --accent: #9f6bff;
+  --accent-soft: #caa8ff;
+}
+
+body.light {
+  --bg-main: linear-gradient(135deg, #f4e9ff, #efe4ff, #ffffff);
+  --text-main: #1a1026;
+  --card-bg: rgba(0,0,0,0.05);
+}
+
+/* =====================
+   BASE
+===================== */
+body {
+  background: var(--bg-main);
+  color: var(--text-main);
+  line-height: 1.6;
+}
+
+/* =====================
+   HERO
+===================== */
+.hero {
+  min-height: 100vh;
+  padding: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+.hero h1 {
+  font-size: 4rem;
+}
+
+.tagline {
+  max-width: 650px;
+  font-size: 1.2rem;
+  opacity: 0.85;
+}
+
+.hero-buttons {
+  margin-top: 35px;
+}
+
+.hero-buttons a {
+  margin-right: 15px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--accent-soft);
+  border: 1px solid var(--accent);
+  transition: all 0.3s ease;
+}
+
+.hero-buttons a:hover {
+  background: var(--accent);
+  color: #140018;
+}
+
+/* Resume buttons highlight */
+.hero-buttons a:nth-child(2),
+.hero-buttons a:nth-child(3) {
+  border-color: var(--accent-soft);
+}
+
+/* Theme toggle */
+.theme-toggle {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: inherit;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+/* =====================
+   SECTIONS
+===================== */
+section {
+  padding: 80px 90px;
+}
+
+h2 {
+  font-size: 2.1rem;
+  margin-bottom: 35px;
+}
+
+/* =====================
+   PROJECTS
+===================== */
+.projects.alt {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.project-card {
+  background: var(--card-bg);
+  padding: 26px;
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 45px rgba(159,107,255,0.25);
+}
+
+.project-card span {
+  display: block;
+  margin-top: 14px;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+/* Make project cards clickable */
+.project-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+/* =====================
+   SKILLS
+===================== */
+.skill-groups {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.skill-groups h4 {
+  margin-bottom: 8px;
+  color: var(--accent-soft);
+}
+
+/* =====================
+   CERTIFICATIONS (PDF BASED)
+===================== */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+.cert-card {
+  background: rgba(255,255,255,0.08);
+  padding: 24px;
+  border-radius: 14px;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.cert-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(159,107,255,0.35);
+}
+
+.cert-icon {
+  font-size: 32px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* =====================
+   MODAL (PDF VIEWER)
+===================== */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.85);
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+}
+
+.modal iframe {
+  width: 80%;
+  height: 85%;
+  border-radius: 12px;
+  background: white;
+}
+
+#closeModal {
+  position: absolute;
+  top: 25px;
+  right: 35px;
+  font-size: 32px;
+  color: white;
+  cursor: pointer;
+}
+
+/* =====================
+   CONTACT
+===================== */
+.contact {
+  padding: 70px 90px;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.contact a {
+  color: var(--accent-soft);
+  text-decoration: none;
+}
+
+/* =====================
+   SCROLL ANIMATIONS
+===================== */
+.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s ease;
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 768px) {
+  .hero, section {
+    padding: 55px 30px;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+  }
+
+  .modal iframe {
+    width: 95%;
+    height: 90%;
+  }
+}
+.project-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
